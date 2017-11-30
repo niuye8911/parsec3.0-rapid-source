@@ -1,0 +1,216 @@
+[PARSEC] Packages to build:  parsec.ferret
+
+[PARSEC] [========== Building package parsec.ferret [1] ==========]
+[PARSEC] [---------- Analyzing package parsec.ferret ----------]
+[PARSEC] parsec.ferret depends on: gsl libjpeg
+[PARSEC] [---------- Analyzing package parsec.gsl ----------]
+[PARSEC] Package parsec.gsl already exists, proceeding.
+[PARSEC] [---------- Analyzing package parsec.libjpeg ----------]
+[PARSEC] Package parsec.libjpeg already exists, proceeding.
+[PARSEC] [---------- Building package parsec.ferret ----------]
+[PARSEC] Removing old build directory.
+[PARSEC] Copying source code of package parsec.ferret.
+[PARSEC] Running 'env version=serial CFLAGS=-I/home/ubuntu/parsec-3.0/pkgs/libs/gsl/inst/arm-linux.gcc-serial/include -I/home/ubuntu/parsec-3.0/pkgs/libs/libjpeg/inst/arm-linux.gcc-serial/include  -O3 -g -funroll-loops -fprefetch-loop-arrays -static-libgcc -Wl,--hash-style=both,--as-needed -DPARSEC_VERSION=3.0-beta-20150206 LDFLAGS=-L/home/ubuntu/parsec-3.0/pkgs/libs/gsl/inst/arm-linux.gcc-serial/lib -L/home/ubuntu/parsec-3.0/pkgs/libs/libjpeg/inst/arm-linux.gcc-serial/lib -L/usr/lib64 -L/usr/lib /usr/bin/make':
+mkdir -p /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin
+mkdir -p /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/lib
+mkdir -p /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/arena.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/arena.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/assign.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/assign.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bench.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/bench.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bench.c: In function ‘benchT_read’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bench.c:39:3: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+   fscanf(fp, "%d", &(query->knn));
+   ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bench.c:48:4: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+    fscanf(fp, "%d", &(query->nabors[j])); 
+    ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bench.c:49:4: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+    fscanf(fp, "%g", &(query->dist[j])); 
+    ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/bitmap.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/bitmap.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/cass.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/cass_dist.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_dist.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/cass_reg.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_reg.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/cuckoo_hash.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cuckoo_hash.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dataset.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/dataset.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dataset.c: In function ‘cass_dataset_merge’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dataset.c:158:8: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+    map = memcpy;
+        ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/dist.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:110:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = __dist_L1_int32,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:110:10: note: (near initialization for ‘vec_dist_L1_int.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:130:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = __dist_L2_int32,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:130:10: note: (near initialization for ‘vec_dist_L2_int.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:145:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = dist_L1_float,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:145:10: note: (near initialization for ‘vec_dist_L1_float.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:160:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = dist_L2_float,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:160:10: note: (near initialization for ‘vec_dist_L2_float.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:175:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = dist_cos_float,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:175:10: note: (near initialization for ‘vec_dist_cos_float.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:195:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = __dist_hamming,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:195:10: note: (near initialization for ‘vec_dist_hamming.dist’)
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:265:10: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .dist = sdist_trivial,
+          ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/dist.c:265:10: note: (near initialization for ‘vecset_dist_trivial.dist’)
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/emd.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/emd.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/emd.c: In function ‘emd’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/emd.c:118:12: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   state->C = C;
+            ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/env.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/env.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/env.c: In function ‘cass_env_errmsg’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/env.c:25:2: warning: #warning to be elaborated. [-Wcpp]
+ #warning to be elaborated.
+  ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/env.c: In function ‘cass_env_checkpoint’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/env.c:246:2: warning: #warning add file switch [-Wcpp]
+ #warning add file switch
+  ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/error.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/error.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/hash.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/hash.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/hash_table.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/hash_table.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/heap.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/heap.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/import.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/import.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/import.c:34:2: warning: #warning to be extended to allow external id [-Wcpp]
+ #warning to be extended to allow external id
+  ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/map.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/map.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/matrix.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/matrix.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/queue.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/queue.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/raw.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/raw.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/stat.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/stat.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/table.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/table.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/timer.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/timer.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/topk.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/topk.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/tp.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/tp.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/tpool.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/tpool.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/util.o'
+In file included from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass.h:44:0,
+                 from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c:26:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c: In function ‘cass_result_free’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass_array.h:155:13: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+    cursor = (array).data + __array_foreach_index;
+             ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c:221:3: note: in expansion of macro ‘ARRAY_BEGIN_FOREACH_P’
+   ARRAY_BEGIN_FOREACH_P(result->u.bitmaps, cass_map_t *map)
+   ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c:223:20: warning: passing argument 1 of ‘bitmap_free_vec’ from incompatible pointer type [-Wincompatible-pointer-types]
+    bitmap_free_vec(map); 
+                    ^
+In file included from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass.h:49:0,
+                 from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/util.c:26:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass_bitmap.h:41:5: note: expected ‘bitmap_t * {aka struct bitmap_t *}’ but argument is of type ‘cass_map_t * {aka struct cass_map_t *}’
+ int bitmap_free_vec(bitmap_t *map); 
+     ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/local.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/local.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/LSH.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH.c:761:11: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  .query = __LSH_query, //mplsh_query,
+           ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH.c:761:11: note: (near initialization for ‘opr_lsh.query’)
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH_query_batch.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/LSH_query_batch.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH_query.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/LSH_query.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/perturb.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/perturb.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/recall.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/recall.o'
+In file included from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass.h:47:0,
+                 from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/LSH.h:4,
+                 from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/recall.c:28:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/recall.c: In function ‘LSH_recall_load’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass_matrix.h:54:11: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   *matrix = ___p; \
+           ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/src/lsh/recall.c:129:2: note: in expansion of macro ‘type_matrix_load_stream’
+  type_matrix_load_stream(float, fin, &row, &col, &recall->table);
+  ^
+   A  '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/lib/libcass.a'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_cfg.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_cfg.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_cfg.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_cfg'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_index.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_index.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_index.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_index'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_map.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_map.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_map.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_map'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_table.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_table.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_table.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_table'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_vec_dist.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_vec_dist.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_vec_dist.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_vec_dist'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_add_vecset_dist.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_vecset_dist.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_add_vecset_dist.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_add_vecset_dist'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_describe.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_describe.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_describe.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_describe'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_export.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_export.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_export.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_export'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_import.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_import.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_import.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_import'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/tools/cass_init.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_init.o'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/cass_init.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/cass_init'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/ferret-serial.o'
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c: In function ‘dir_helper’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:137:19: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long long int’ [-Wformat=]
+   fprintf(stdout, "current round for %s, %d, used %d milli\n", ent->d_name, finished_image, endTime-startTime);
+                   ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:139:18: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long long int’ [-Wformat=]
+  fprintf(stdout, "[RSDG]: total runtime = %d ms, average = %d ms\n", totalRuntime, totalRuntime/finished_image);
+                  ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:139:18: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘long long int’ [-Wformat=]
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c: In function ‘do_query’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:222:16: warning: passing argument 1 of ‘image_segment’ from incompatible pointer type [-Wincompatible-pointer-types]
+  image_segment(&mask, &nrgn, RGB, width, height);
+                ^
+In file included from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:29:0:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/../image/image.h:31:5: note: expected ‘void **’ but argument is of type ‘unsigned char **’
+ int image_segment (void **output, int *num_ccs, void *pixels, int width, int height);
+     ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:247:29: warning: embedded ‘\0’ in format [-Wformat-contains-nul]
+  sprintf(extra_params_rsdg, "-L %d -T %d\0", curHashNum, curProbeNum);
+                             ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c: In function ‘main’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:386:28: warning: passing argument 2 of ‘cass_env_open’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ret = cass_env_open(&env, db_dir, 0);
+                            ^
+In file included from /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:26:0:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/include/cass.h:191:5: note: expected ‘char *’ but argument is of type ‘const char *’
+ int cass_env_open(cass_env_t **env, char *db_home, uint32_t flags); 
+     ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c: In function ‘setupMission’:
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:480:22: warning: embedded ‘\0’ in format [-Wformat-contains-nul]
+   sprintf(node_name, "hash%d\0", i+1);
+                      ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:487:36: warning: embedded ‘\0’ in format [-Wformat-contains-nul]
+                 sprintf(node_name, "probe%d\0", i+1);
+                                    ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:494:36: warning: embedded ‘\0’ in format [-Wformat-contains-nul]
+                 sprintf(node_name, "itr%d\0", i+1);
+                                    ^
+/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/benchmark/ferret-serial.c:505:2: warning: implicit declaration of function ‘setSolver’ [-Wimplicit-function-declaration]
+  setSolver(ferretMission, 0,0);
+  ^
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/image/image.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/image.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/image/extract.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/extract.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/image/edge.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/edge.o'
+   CC '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/image/srm.c' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/srm.o'
+   A  '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/lib/libcassimage.a'
+   CXX '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/obj/ferret-serial.o' ==> '/home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin/ferret-serial'
+[PARSEC] Running 'env version=serial CFLAGS=-I/home/ubuntu/parsec-3.0/pkgs/libs/gsl/inst/arm-linux.gcc-serial/include -I/home/ubuntu/parsec-3.0/pkgs/libs/libjpeg/inst/arm-linux.gcc-serial/include  -O3 -g -funroll-loops -fprefetch-loop-arrays -static-libgcc -Wl,--hash-style=both,--as-needed -DPARSEC_VERSION=3.0-beta-20150206 LDFLAGS=-L/home/ubuntu/parsec-3.0/pkgs/libs/gsl/inst/arm-linux.gcc-serial/lib -L/home/ubuntu/parsec-3.0/pkgs/libs/libjpeg/inst/arm-linux.gcc-serial/lib -L/usr/lib64 -L/usr/lib /usr/bin/make install':
+cp -r /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/bin /home/ubuntu/parsec-3.0/pkgs/apps/ferret/inst/arm-linux.gcc-serial
+cp -r /home/ubuntu/parsec-3.0/pkgs/apps/ferret/obj/arm-linux.gcc-serial/parsec/lib /home/ubuntu/parsec-3.0/pkgs/apps/ferret/inst/arm-linux.gcc-serial
+mv /home/ubuntu/parsec-3.0/pkgs/apps/ferret/inst/arm-linux.gcc-serial/bin/ferret-serial /home/ubuntu/parsec-3.0/pkgs/apps/ferret/inst/arm-linux.gcc-serial/bin/ferret
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Bienia. Benchmarking Modern Multiprocessors. Ph.D. Thesis, 2011.
+[PARSEC]
+[PARSEC] Done.
