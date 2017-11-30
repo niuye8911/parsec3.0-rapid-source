@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+    <service>
+        <servicename>num</servicename>
+        <servicelayer>
+            <basicnode>
+                <nodename>contnum</nodename>
+		<contcost>
+			<o2>-8.33E-12</o2>
+			<o1>1.38343E-2</o1>
+			<c>11.43</c>
+		</contcost>
+            </basicnode>
+        </servicelayer>
+    </service>
+</resource>

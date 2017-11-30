@@ -89,9 +89,7 @@ rsdgPara* paraSim;
 rsdgPara* paraSimCont;
 rsdgMission* swaptionMission;
 int numOfSwitch; 
-string infiledesc = "rsdgSwaptionsdesc.xml";
-string infilecont = "rsdgSwaptionscont.xml";
-string infile=infiledesc;
+string XML_PATH="rsdgSwaptions.xml";
 string outfile = "output.lp";
 int totSec; //in second
 long long startMilli;
@@ -131,7 +129,7 @@ void setupMission(){
 	}else{
 		swaptionMission -> regContService("num", "contnum", &change_Simulation_Num_Cont, paraSimCont);
 	}
-        swaptionMission -> generateProb(infile);
+        swaptionMission -> generateProb(XML_PATH);
         swaptionMission -> updateMV("num", 20, false);
 	swaptionMission -> setSolver(rsdgMission::GUROBI, rsdgMission::REMOTE);
 	//comment out this line to enable pre-retrain
@@ -274,8 +272,9 @@ int main(int argc, char *argv[])
 	  else if (!strcmp("-rsdg", argv[j])) {RSDG = true;}
 	  else if (!strcmp("-train", argv[j])) {TRAINING = true;}
 	  else if (!strcmp("-udpate", argv[j])){UPDATE = true;}
-	  else if (!strcmp("-cont", argv[j])) {CONT = true;infile=infilecont;}
+	  else if (!strcmp("-cont", argv[j])) {CONT = true;}
 	  else if (!strcmp("-u", argv[j])) {UNIT_PER_CHECK = atoi(argv[++j]);}
+	  else if (!strcmp("-xml", argv[j])) {XML_PATH = argv[++j];}
           else {
             fprintf(stderr,"Error: Unknown option: %s\n", argv[j]);
             print_usage(argv[0]);
