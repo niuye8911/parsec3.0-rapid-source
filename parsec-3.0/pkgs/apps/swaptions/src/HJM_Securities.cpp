@@ -89,7 +89,9 @@ rsdgPara* paraSim;
 rsdgPara* paraSimCont;
 rsdgMission* swaptionMission;
 int numOfSwitch; 
-string infile = "rsdgSwaptions.xml";
+string infiledesc = "rsdgSwaptionsdesc.xml";
+string infilecont = "rsdgSwaptionscont.xml";
+string infile=infiledesc;
 string outfile = "output.lp";
 int totSec; //in second
 long long startMilli;
@@ -272,7 +274,7 @@ int main(int argc, char *argv[])
 	  else if (!strcmp("-rsdg", argv[j])) {RSDG = true;}
 	  else if (!strcmp("-train", argv[j])) {TRAINING = true;}
 	  else if (!strcmp("-udpate", argv[j])){UPDATE = true;}
-	  else if (!strcmp("-cont", argv[j])) {CONT = true;}
+	  else if (!strcmp("-cont", argv[j])) {CONT = true;infile=infilecont;}
 	  else if (!strcmp("-u", argv[j])) {UNIT_PER_CHECK = atoi(argv[++j]);}
           else {
             fprintf(stderr,"Error: Unknown option: %s\n", argv[j]);
