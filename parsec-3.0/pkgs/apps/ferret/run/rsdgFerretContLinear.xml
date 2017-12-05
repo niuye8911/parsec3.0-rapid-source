@@ -6,9 +6,9 @@
             <basicnode>
                 <nodename>itr</nodename>
 		<contcost>
-			<o2>2.05e-15</o2>
-			<o1>2.204e-1</o1>
-			<c>0</c>
+			<o2>3.79e-15</o2>
+			<o1>0.2204</o1>
+			<c>158.78</c>
 		</contcost>
 		<contmax>25</contmax>
                 <contmin>2</contmin>
@@ -41,20 +41,10 @@
                         <thenrangemin>8</thenrangemin>    
                 </contand> 
 		<contmv>
-			<o2>1.655e-16</o2>
-			<o1>1.31</o1>
+			<o2>1.09e-16</o2>
+			<o1>2.71</o1>
 			<c>0</c>
 		</contmv>
-		<contwith>
-			<name>probe</name>
-			<mvcoeff>1.47e-18</mvcoeff>
-			<costcoeff>1.87e-15</costcoeff>
-		</contwith>
-		<contwith>
-			<name>hash</name>
-			<mvcoeff>1.74e-1</mvcoeff>
-			<costcoeff>8.23e-14</costcoeff>
-		</contwith>
             </basicnode>
         </servicelayer>
     </service>
@@ -64,22 +54,17 @@
             <basicnode>
                 <nodename>hash</nodename>
 		<contcost>
-			<o2>4.65e-14</o2>
-			<o1>7.62e-13</o1>
-			<c>1.94e2</c>
+			<o2>1.54e-13</o2>
+			<o1>4.47</o1>
+			<c>0</c>
 		</contcost>
 		<contmax>8</contmax>
                 <contmin>2</contmin>
 		<contmv>
-                        <o2>1.592e-17</o2>
-                        <o1>57.06</o1>
+                        <o2>1.423e-15</o2>
+                        <o1>61.42</o1>
                         <c>0</c>
                 </contmv>
-		<contwith>
-			<name>probe</name>
-			<mvcoeff>2.151e-16</mvcoeff>
-			<costcoeff>2.23e-1</costcoeff>
-		</contwith>
 		<contand>
 			<ifrangemax>8</ifrangemax>
 			<ifrangemin>7</ifrangemin>
@@ -117,16 +102,16 @@
             <basicnode>
                 <nodename>probe</nodename>
 		<contcost>
-			<o2>3.879e-15</o2>
-			<o1>3.49e-1</o1>
+			<o2>1.635e-14</o2>
+			<o1>2.138</o1>
 			<c>0</c>
 		</contcost>
 		<contmax>20</contmax>
                 <contmin>2</contmin>
 		<contmv>
-                        <o2>2.22e-18</o2>
-                        <o1>1.318</o1>
-                        <c>0</c>
+                        <o2>1.319e-15</o2>
+                        <o1>1.899</o1>
+                        <c>3.463e2</c>
                 </contmv>
             </basicnode>
         </servicelayer>

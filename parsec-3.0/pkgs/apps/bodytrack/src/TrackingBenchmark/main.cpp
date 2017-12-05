@@ -72,11 +72,14 @@ using namespace std;
 rsdgMission* bodyMission;
 rsdgPara* particlePara;
 rsdgPara* layerPara;
+rsdgPara* particleParaCont;
+rsdgPara* layerParaCont;
 
 // RSDG related 
 int layer = 5;
 int particle = 4000;
 string infile = "rsdgBody.xml";
+string XML_PATH = infile;
 string outfile = "output.lp";
 int totSec;
 long long startMilli;
@@ -85,6 +88,7 @@ int frameFinished = 0;
 int UNIT_PER_CHECK = 5;
 int totUnit;
 bool RSDG = false;
+bool CONT = false;
 bool TRAINING = false;
 bool OFFLINE = false;
 bool UPDATE = false;
@@ -186,6 +190,9 @@ bool ProcessCmdLine(int argc, char **argv, string &path, int &cameras, int &fram
 			else if (!strcmp(argv[i], "-b")) totSec = stoi(argv[++i]);
 			else if (!strcmp(argv[i], "-update")) UPDATE = true;
 			else if (!strcmp(argv[i], "-offline")) OFFLINE = true;
+			else if (!strcmp(argv[i], "-u")) UNIT_PER_CHECK = atoi(argv[++i]);
+			else if (!strcmp(argv[i], "-cont")) CONT = true;
+			else if (!strcmp(argv[i], "-xml")) XML_PATH = argv[++i];
 			else if (!strcmp(argv[i], "-train")) {
 				TRAINING = true;
 				UNIT_PER_CHECK = frames;
@@ -431,7 +438,9 @@ int main(int argc, char **argv)
 {
 	bodyMission = new rsdgMission();
 	particlePara = new rsdgPara();
+	particleParaCont = new rsdgPara();
 	layerPara = new rsdgPara();
+	layerParaCont = new rsdgPara();
 	
 	string path;
 	bool OutputBMP;
@@ -530,6 +539,12 @@ void* change_Layer_Num(void* arg){
 	layer = newLayer;
 }
 
+void* change_Layer_Num_Cont(void* arg){
+        int layerNum = layerParaCont->intPara;
+        cout<<"num of layers changes from "<<layer<<" to "<<layerNum<<endl;
+        layer = layerNum;
+}
+
 void* change_Particle_Num(void* arg){
 	int particleNum = particlePara->intPara;
 	int newParticle;
@@ -538,11 +553,20 @@ void* change_Particle_Num(void* arg){
 	particle = newParticle;
 }
 
+void* change_Particle_Num_Cont(void* arg){
+        int particleNum = particleParaCont->intPara;
+        cout<<" num of particles chagnes from "<<particle<<" to "<<particleNum<<endl;
+        particle = particleNum;
+}
+
 void setupMission(){
         bodyMission = new rsdgMission();
 	particlePara  = new rsdgPara();
 	layerPara = new rsdgPara();
+	layerParaCont = new rsdgPara();
+	particleParaCont = new rsdgPara();
 	// register particles
+	if (!CONT){
 	for(int i = 0; i<40; i++){
 		string nodeName = to_string(40-i)+"h";
         bodyMission -> regService("particle", nodeName, &change_Particle_Num, false, make_pair(particlePara, i+1));
@@ -551,7 +575,12 @@ void setupMission(){
 		string nodeName = to_string(5-j)+"l";
 		bodyMission -> regService("layer", nodeName, &change_Layer_Num, false, make_pair(layerPara, j+1));
 	}
-        bodyMission -> generateProb(infile);
+	} else{
+		// continuous
+		bodyMission -> regContService("particleNum", "particle", &change_Particle_Num_Cont, particleParaCont);
+		bodyMission -> regContService("layerNum", "layer", &change_Layer_Num_Cont, layerParaCont);
+	}
+        bodyMission -> generateProb(XML_PATH);
         bodyMission -> setSolver(rsdgMission::GUROBI, rsdgMission::REMOTE);
         bodyMission -> setUnitBetweenCheckpoints(UNIT_PER_CHECK);
         bodyMission -> setBudget(totSec*1000);

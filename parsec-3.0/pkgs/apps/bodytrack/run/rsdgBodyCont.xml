@@ -1,0 +1,38 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<resource>
+    <service>
+        <servicename>particleNum</servicename>
+        <servicelayer>
+            <basicnode>
+                <nodename>particle</nodename>
+		<contcost>
+			<o2></o2>
+			<o1></o1>
+			<c>0</c>
+		</contcost>
+		<contmax>4000</contmax>
+                <contmin>100</contmin>
+            </basicnode>
+        </servicelayer>
+    </service>
+    <service>
+        <servicename>layerNum</servicename>
+        <servicelayer>
+            <basicnode>
+                <nodename>layer</nodename>
+		<contcost>
+			<o2>4.65e-14</o2>
+			<o1>7.62e-13</o1>
+			<c>1.94e2</c>
+		</contcost>
+		<contmax>5</contmax>
+                <contmin>1</contmin>
+		<contmv>
+                        <o2>6.309e-16</o2>
+                        <o1>3.638e-15</o1>
+                        <c>6.42e-1</c>
+                </contmv>
+            </basicnode>
+        </servicelayer>
+    </service>
+</resource>

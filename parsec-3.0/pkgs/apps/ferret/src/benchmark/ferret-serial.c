@@ -48,11 +48,16 @@ FILE *fout;
 int OFFLINE_TRAINING = 0;
 int UPDATE = 0;
 int OFFLINE = 0;
+int CONT = 0;
 //create a new rsdgMission
 void * ferretMission;
 void * iterationPara;
 void * hashPara;
 void * probePara;
+void * hashContPara;
+void * probeContPara;
+void * iterationContPara;
+const char* XML_PATH=NULL;
 
 int top_K = 10;
 
@@ -89,7 +94,7 @@ int scan_dir (const char *, char *head);
 long long getCurrentMilli(){
     struct timeval tp;
     gettimeofday(&tp, NULL);
-    long long mslong = (long long) tp.tv_sec * 1000 + tp.tv_usec / 1000;
+    long long mslong = (long long) (tp.tv_sec * 1000 + tp.tv_usec / 1000);
     return mslong;
 }
 
@@ -109,12 +114,16 @@ int dir_helper (char *dir, char *head)
 	{
 		 ent = readdir(pd);
 		if(ent->d_name[0] == '.'){
-                        fprintf(stdout, "skipping .\n");
                         continue;
                 }
 
 		if(RSDG==1){
 			if (finished_image % UNIT_PER_CHECK ==0){
+				if(OFFLINE_TRAINING){
+					rewinddir(pd);
+                  	                ent = readdir(pd);
+                        	        fprintf(stdout, "[RSDG}:going for another round\n");
+				}
 				reconfig(ferretMission);
 				setLogger(ferretMission);
 				if(isFailed(ferretMission))break;
@@ -123,13 +132,14 @@ int dir_helper (char *dir, char *head)
 		// this loop is used to iterate through all queries in the dir	
 		if (ent == NULL) {
 			//if offline training, rewind to beginining
-			if(OFFLINE_TRAINING) {
+			/*if(OFFLINE_TRAINING) {
 				rewinddir(pd);
 				ent = readdir(pd);
 				fprintf(stdout, "[RSDG}:going for another round\n");
 			}
 			else break;
-		}
+			*/break;
+		}	
 		long long startTime = getCurrentMilli(); 
 		if (scan_dir(ent->d_name, head) != 0) return -1;
 		finished_image++;
@@ -361,6 +371,14 @@ int main (int argc, char *argv[])
 				totSec = atoi(argv[++cur_argc]);
 				cur_argc++;
 			}
+			else if(!strcmp(argv[cur_argc], "-cont")){
+				CONT = 1;
+                                cur_argc++;
+                        }
+			else if(!strcmp(argv[cur_argc], "-xml")){
+                                XML_PATH = argv[++cur_argc];
+                                cur_argc++;
+                        }
 			else if(!strcmp(argv[cur_argc], "-l")){
 				curHashNum = atoi(argv[++cur_argc]);
 				cur_argc++;
@@ -465,12 +483,24 @@ void *change_Hash_Num(void* arg){
 	curHashNum = newHashNum;
 }
 
+void *change_Hash_Num_Cont(void* arg){
+	int hashNum = getParaVal(hashContPara);
+        fprintf(stdout, "[RAPID] num of hash table changes from %d to %d \n", curHashNum, hashNum);
+        curHashNum = hashNum;
+}
+
 void *change_Probe_Num(void* arg){
         int probeNum = getParaVal(probePara);
         int newProbeNum;
         newProbeNum = 20 - 2*(probeNum-1);
         fprintf(stdout, "[RAPID] num of probing changes from %d to %d \n", curProbeNum, newProbeNum);
         curProbeNum = newProbeNum;
+}
+
+void *change_Probe_Num_Cont(void* arg){
+        int probeNum = getParaVal(probeContPara);
+        fprintf(stdout, "[RAPID] num of hash table changes from %d to %d \n", curProbeNum, probeNum);
+        curProbeNum = probeNum;
 }
 
 // a run function being registered to RSDG
@@ -482,6 +512,12 @@ void *change_Iteration_Num(void* arg){
 	curItr = newItr;
 }
 
+void *change_Iteration_Num_Cont(void* arg){
+        int iterationNum = getParaVal(iterationContPara);
+        fprintf(stdout, "[RAPID] num of iteration changes from %d to %d \n", curItr, iterationNum);
+        curItr = iterationNum;
+}
+
 void setupMission(){
 	//init a rsdgmission
         ferretMission = newRAPIDMission();
@@ -489,7 +525,11 @@ void setupMission(){
         iterationPara = newRAPIDPara();
 	hashPara = newRAPIDPara();
 	probePara = newRAPIDPara();
-	// register the first service
+	iterationContPara = newRAPIDPara();
+	hashContPara = newRAPIDPara();
+	probeContPara = newRAPIDPara();
+	// register discrete service
+	if(CONT==0){
 	for (int i = 0; i< 4; i++){
 		char * node_name = malloc(10 * sizeof(char));
 		sprintf(node_name, "hash%d\0", i+1);
@@ -509,7 +549,13 @@ void setupMission(){
                 sprintf(node_name, "itr%d\0", i+1);
                 regService(ferretMission, "iterationNum", node_name, &change_Iteration_Num, 1, iterationPara, i+1);
 	}
-	read_rsdg(ferretMission, "/home/ubuntu/parsec-3.0/pkgs/apps/ferret/run/rsdgFerret.xml");
+	}
+	else{// Continuous Services
+		regContService(ferretMission, "hashNum", "hash", &change_Hash_Num_Cont, hashContPara);
+		regContService(ferretMission, "hashProbe", "probe", &change_Probe_Num_Cont, probeContPara);
+		regContService(ferretMission, "hashIteration", "iteration", &change_Iteration_Num_Cont, iterationContPara);
+	}	
+	read_rsdg(ferretMission, XML_PATH);
 	addConstraint(ferretMission, "iterationNum", 1);
 	addConstraint(ferretMission, "probeNum", 1);
 	addConstraint(ferretMission, "hashNum", 1);
@@ -522,7 +568,7 @@ void setupMission(){
 	}
 	if(UPDATE) setUpdate(ferretMission,1);
 	setSolver(ferretMission, 0,0);
-	setUnit(ferretMission, 3500);// 3500 queries in native
+	setUnit(ferretMission, 500);// 3500 queries in native
 	setUnitBetweenCheckpoints(ferretMission, UNIT_PER_CHECK);
 	if(OFFLINE_TRAINING){
 		setTraining(ferretMission);

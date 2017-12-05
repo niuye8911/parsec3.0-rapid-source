@@ -10,6 +10,8 @@
 			<o1>1.38343E-2</o1>
 			<c>11.43</c>
 		</contcost>
+		<contmax>1000000</contmax>
+		<contmin>100000</contmin>
             </basicnode>
         </servicelayer>
     </service>

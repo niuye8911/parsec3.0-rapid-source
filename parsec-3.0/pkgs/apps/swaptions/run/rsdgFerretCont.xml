@@ -4,11 +4,11 @@
         <servicename>iterationNum</servicename>
         <servicelayer>
             <basicnode>
-                <nodename>num</nodename>
+                <nodename>itr</nodename>
 		<contcost>
-			<o2>1</o2>
-			<o1>1</o1>
-			<c>1</c>
+			<o2>8.79e-16</o2>
+			<o1>1.321</o1>
+			<c>1.373e2</c>
 		</contcost>
 		<contand>
 			<ifrangemin>0</ifrangemin>
@@ -17,7 +17,11 @@
 			<thenrangemin>1</thenrangemin>
 			<thenrangemax>2</thenrangemax>
 		</contand>
-		<nodemv>0.58343341345</nodemv>
+		<contmv>
+			<o2>1.09e-16</o2>
+			<o1>6.1424e1</o1>
+			<c>0</c>
+		</contmv>
             </basicnode>
         </servicelayer>
     </service>
@@ -25,13 +29,17 @@
         <servicename>hashNum</servicename>
         <servicelayer>
             <basicnode>
-                <nodename>hash1</nodename>
+                <nodename>hash</nodename>
 		<contcost>
-			<o2>2</o2>
-			<o1>1</o1>
-			<c>1</c>
+			<o2>9.43e-14</o2>
+			<o1>3.755</o1>
+			<c>0</c>
 		</contcost>
-		<nodemv>0.38791591147</nodemv>
+		<contmv>
+                        <o2>1.423e-15</o2>
+                        <o1>6.142e1</o1>
+                        <c>0</c>
+                </contmv>
             </basicnode>
         </servicelayer>
     </service>
@@ -39,13 +47,17 @@
         <servicename>probeNum</servicename>
         <servicelayer>
             <basicnode>
-                <nodename>probe1</nodename>
+                <nodename>probe</nodename>
 		<contcost>
-			<o2>2</o2>
-			<o1>1</o1>
-			<c>12</c>
+			<o2>2.422e-15</o2>
+			<o1>1.982</o1>
+			<c>0</c>
 		</contcost>
-		<nodemv>0.0348467534801</nodemv>
+		<contcost>
+                        <o2>1.319e-15</o2>
+                        <o1>1.899e0</o1>
+                        <c>3.463e2</c>
+                </contcost>
             </basicnode>
         </servicelayer>
     </service>
