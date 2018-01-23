@@ -567,7 +567,7 @@ void setupMission(){
 	
 	}
 	if(UPDATE) setUpdate(ferretMission,1);
-	setSolver(ferretMission, 0,0);
+	setSolver(ferretMission, 0,1);
 	setUnit(ferretMission, 500);// 3500 queries in native
 	setUnitBetweenCheckpoints(ferretMission, UNIT_PER_CHECK);
 	if(OFFLINE_TRAINING){

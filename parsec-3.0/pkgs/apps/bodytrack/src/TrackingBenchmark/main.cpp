@@ -410,6 +410,7 @@ int mainSingleThread(string path, int cameras, int frames, int particles, int la
 		//	cout<<"model inited " <<model<<endl;
 			pf.SetModel(*model);
 			pf.InitializeParticles(particle);
+			if(TRAINING && !(bodyMission->isFailed())) i=0;
 		}
 		 cout << "Processing frame " << i << endl;
 		if(!pf.Update((float)i))														//Run particle filter step
@@ -577,11 +578,11 @@ void setupMission(){
 	}
 	} else{
 		// continuous
-		bodyMission -> regContService("particleNum", "particle", &change_Particle_Num_Cont, particleParaCont);
-		bodyMission -> regContService("layerNum", "layer", &change_Layer_Num_Cont, layerParaCont);
+		bodyMission -> regContService("particle", "particleNum", &change_Particle_Num_Cont, particleParaCont);
+		bodyMission -> regContService("layer", "layerNum", &change_Layer_Num_Cont, layerParaCont);
 	}
         bodyMission -> generateProb(XML_PATH);
-        bodyMission -> setSolver(rsdgMission::GUROBI, rsdgMission::REMOTE);
+        bodyMission -> setSolver(rsdgMission::GUROBI, rsdgMission::LOCAL);
         bodyMission -> setUnitBetweenCheckpoints(UNIT_PER_CHECK);
         bodyMission -> setBudget(totSec*1000);
         bodyMission -> setUnit(totUnit);

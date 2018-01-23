@@ -131,7 +131,7 @@ void setupMission(){
 	}
         swaptionMission -> generateProb(XML_PATH);
         swaptionMission -> updateMV("num", 20, false);
-	swaptionMission -> setSolver(rsdgMission::GUROBI, rsdgMission::REMOTE);
+	swaptionMission -> setSolver(rsdgMission::GUROBI, rsdgMission::LOCAL);
 	//comment out this line to enable pre-retrain
 	swaptionMission -> setUnitBetweenCheckpoints(UNIT_PER_CHECK);
 	swaptionMission -> setBudget(totSec*1000);
@@ -169,7 +169,7 @@ void * worker(void *arg){
   cout<<"STARTING JOB"<<endl<<endl;
 	// eliminate the wierd boost
   if(RSDG){
-  for(int j = 0; j<2; j++){
+/*  for(int j = 0; j<2; j++){
 	  cout<<"bla"<<endl;
 	  int iSuccess = HJM_Swaption_Blocking(pdSwaptionPrice,  swaptions[j].dStrike,
                                        swaptions[j].dCompounding, swaptions[j].dMaturity,
@@ -178,12 +178,15 @@ void * worker(void *arg){
                                        swaptions[j].pdYield, swaptions[j].ppdFactors,
                                        swaption_seed+j, numOfSwitch, BLOCK_SIZE, 0);
 	  swaptionMission -> reconfig();
-  }
+  }*/
   swaptionMission -> setBudget(totSec*1000);
   if(UPDATE)swaptionMission -> setUpdate(0);
   swaptionMission -> resetTimer();
 //set training flag here
-  if(TRAINING)swaptionMission -> setTraining();
+  if(TRAINING){
+	swaptionMission -> setTraining();
+	cout<<"RUNNING in TRAINING"<<endl;
+  }
   }
 
   for(int i=beg; i < end; i++) {
@@ -270,7 +273,7 @@ int main(int argc, char *argv[])
 	  else if (!strcmp("-sd", argv[j])) {seed = atoi(argv[++j]);}
 	  else if (!strcmp("-b", argv[j])) {totSec = atoi(argv[++j]);} 
 	  else if (!strcmp("-rsdg", argv[j])) {RSDG = true;}
-	  else if (!strcmp("-train", argv[j])) {TRAINING = true;}
+	  else if (!strcmp("-train", argv[j])) {TRAINING = true;cout<<"from cmd line train"<<endl;}
 	  else if (!strcmp("-udpate", argv[j])){UPDATE = true;}
 	  else if (!strcmp("-cont", argv[j])) {CONT = true;}
 	  else if (!strcmp("-u", argv[j])) {UNIT_PER_CHECK = atoi(argv[++j]);}

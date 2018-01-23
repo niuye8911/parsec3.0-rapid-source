@@ -90,12 +90,12 @@ am_bodytrack_OBJECTS = AnnealingFactor.$(OBJEXT) \
 	RandomGenerator.$(OBJEXT) TrackingModel.$(OBJEXT) \
 	main.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3)
-bodytrack_OBJECTS = $(am_bodytrack_OBJECTS) /home/ubuntu/parsec-3.0/rsdglib/rsdg.a
+bodytrack_OBJECTS = $(am_bodytrack_OBJECTS) /home/liuliu/Research/rapidlib-linux/rsdg.a
 @ENABLE_THREADS_TRUE@am__DEPENDENCIES_1 = threads/libthreads.la
 am__DEPENDENCIES_2 =
 bodytrack_DEPENDENCIES = ../FlexImageLib/libflex.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_2)
-DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir) -I/home/ubuntu/parsec-3.0/rsdglib
+DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir) -I/home/liuliu/Research/rapidlib-linux
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \

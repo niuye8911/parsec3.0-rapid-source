@@ -3,7 +3,7 @@ TARGET = ferret
 ARCH = parsec
 
 LDLIBS += $(LIBS) -lrt -lm -lcass -lgsl -lgslcblas -ljpeg -lstdc++ -lcurl -lpthread
-RSDGPREFIX = /home/ubuntu/parsec-3.0/rsdglib/ 
+RSDGPREFIX = /home/liuliu/Research/rapidlib-linux/ 
 INCLUDE = -I$(RSDGPREFIX) -I/usr/incldue/curl/
 .PHONY:	all clean install dirs lib tools image server benchmark 
 CXXFLAGS = -std=c++11 -pthread
@@ -117,9 +117,9 @@ $(tools_tgt): $(BINDIR)/% : $(OBJDIR)/%.o $(LIBDIR)/libcass.a
 	@echo "   CXX '$<' ==> '$@'"
 	@$(CXX) $(CFLAGS) $(LDFLAGS) $(INCLUDE) $^ -o $@ $(LDLIBS)
 
-$(benchmark_tgt): $(BINDIR)/% : $(OBJDIR)/%.o $(LIBDIR)/libcass.a $(LIBDIR)/libcassimage.a /home/ubuntu/parsec-3.0/rsdglib/rsdg.a
+$(benchmark_tgt): $(BINDIR)/% : $(OBJDIR)/%.o $(LIBDIR)/libcass.a $(LIBDIR)/libcassimage.a /home/liuliu/Research/rapidlib-linux/rsdg.a
 	@echo "   CXX '$<' ==> '$@'"
-	@$(CXX) $(INCLUDE) $(CFLAGS) $(LDFLAGS) /home/ubuntu/parsec-3.0/rsdglib/rsdg.a $^ -o $@ $(LDLIBS)
+	@$(CXX) $(INCLUDE) $(CFLAGS) $(LDFLAGS) /home/liuliu/Research/rapidlib-linux/rsdg.a $^ -o $@ $(LDLIBS)
 
 $(image_tgt): $(BINDIR)/% : $(OBJDIR)/%.o $(LIBDIR)/libcass.a $(LIBDIR)/libcassimage.a
 	@echo "   CXX '$<' ==> '$@'"
