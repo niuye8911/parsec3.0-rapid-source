@@ -115,6 +115,10 @@ void setupMission(){
         swaptionMission = new rsdgMission();
         paraSim = new rsdgPara();
 	paraSimCont = new rsdgPara();
+	if(CONT){
+		//train the stage-1 first
+		swaptionMission -> readContTrainingSet();
+	}
         if(!CONT){
 		swaptionMission -> regService("num", "1m", &change_Simulation_Num, false, make_pair(paraSim, 1));
 	        swaptionMission -> regService("num", "900k", &change_Simulation_Num, false, make_pair(paraSim, 2));
