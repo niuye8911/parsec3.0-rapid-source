@@ -592,6 +592,7 @@ void setupMission(){
 		bodyMission->setOfflineSearch();
 	}
 	if(TRAINING){
+		bodyMission->readContTrainingSet();
 		bodyMission->setTraining();
 		bodyMission->setUnit(100000);
 	}
