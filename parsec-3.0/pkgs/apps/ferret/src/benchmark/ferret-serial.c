@@ -552,8 +552,8 @@ void setupMission(){
 	}
 	else{// Continuous Services
 		regContService(ferretMission, "hashNum", "hash", &change_Hash_Num_Cont, hashContPara);
-		regContService(ferretMission, "hashProbe", "probe", &change_Probe_Num_Cont, probeContPara);
-		regContService(ferretMission, "hashIteration", "iteration", &change_Iteration_Num_Cont, iterationContPara);
+		regContService(ferretMission, "probeNum", "probe", &change_Probe_Num_Cont, probeContPara);
+		regContService(ferretMission, "iterationNum", "iteration", &change_Iteration_Num_Cont, iterationContPara);
 	}	
 	read_rsdg(ferretMission, XML_PATH);
 	addConstraint(ferretMission, "iterationNum", 1);
