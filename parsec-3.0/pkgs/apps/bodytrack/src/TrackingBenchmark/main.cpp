@@ -578,10 +578,11 @@ void setupMission(){
 	}
 	} else{
 		// continuous
-		bodyMission -> regContService("particle", "particleNum", &change_Particle_Num_Cont, particleParaCont);
-		bodyMission -> regContService("layer", "layerNum", &change_Layer_Num_Cont, layerParaCont);
+		bodyMission -> regContService("particleNum", "particle", &change_Particle_Num_Cont, particleParaCont);
+		bodyMission -> regContService("layerNum", "layer", &change_Layer_Num_Cont, layerParaCont);
 	}
         bodyMission -> generateProb(XML_PATH);
+	cout<<"problem generated"<<endl;
         bodyMission -> setSolver(rsdgMission::GUROBI, rsdgMission::LOCAL);
         bodyMission -> setUnitBetweenCheckpoints(UNIT_PER_CHECK);
         bodyMission -> setBudget(totSec*1000);
@@ -599,7 +600,7 @@ void setupMission(){
 	if(UPDATE){
 		bodyMission->setUpdate(true);
 	}
-	bodyMission -> addConstraint("particle", true);
-	bodyMission -> addConstraint("layer", true);
+	bodyMission -> addConstraint("particleNum", true);
+	bodyMission -> addConstraint("layerNum", true);
         cout<<endl<<"RSDG setup finished"<<endl;
 }

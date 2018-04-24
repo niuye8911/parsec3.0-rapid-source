@@ -6,8 +6,8 @@
             <basicnode>
                 <nodename>itr</nodename>
 		<contcost>
-			<o2>2.05e-15</o2>
-			<o1>2.204e-1</o1>
+			<o2>-6.2874776311218739e-02</o2>
+			<o1>4.4391052709834184e+00</o1>
 			<c>0</c>
 		</contcost>
 		<contmax>25</contmax>
@@ -41,19 +41,19 @@
                         <thenrangemin>8</thenrangemin>    
                 </contand> 
 		<contmv>
-			<o2>1.655e-16</o2>
+			<o2>1.655e6</o2>
 			<o1>1.31</o1>
 			<c>0</c>
 		</contmv>
 		<contwith>
 			<name>probe</name>
-			<mvcoeff>1.47e-18</mvcoeff>
-			<costcoeff>1.87e-15</costcoeff>
+			<mvcoeff>0</mvcoeff>
+			<costcoeff>-4.8632582620484754e-03</costcoeff>
 		</contwith>
 		<contwith>
 			<name>hash</name>
-			<mvcoeff>1.74e-1</mvcoeff>
-			<costcoeff>8.23e-14</costcoeff>
+			<mvcoeff>0</mvcoeff>
+			<costcoeff>-1.2348263699095696e-03</costcoeff>
 		</contwith>
             </basicnode>
         </servicelayer>
@@ -64,21 +64,21 @@
             <basicnode>
                 <nodename>hash</nodename>
 		<contcost>
-			<o2>4.65e-14</o2>
-			<o1>7.62e-13</o1>
-			<c>1.94e2</c>
+			<o2>-5.4690879421832506e-01</o2>
+			<o1>1.1243740081015858e+01</o1>
+			<c>8.2455904246889986e+00</c>
 		</contcost>
 		<contmax>8</contmax>
                 <contmin>2</contmin>
 		<contmv>
-                        <o2>1.592e-17</o2>
+                        <o2>1.592e7</o2>
                         <o1>57.06</o1>
                         <c>0</c>
                 </contmv>
 		<contwith>
 			<name>probe</name>
-			<mvcoeff>2.151e-16</mvcoeff>
-			<costcoeff>2.23e-1</costcoeff>
+			<mvcoeff>0</mvcoeff>
+			<costcoeff>-7.3727631752262823e-02</costcoeff>
 		</contwith>
 		<contand>
 			<ifrangemax>8</ifrangemax>
@@ -117,14 +117,14 @@
             <basicnode>
                 <nodename>probe</nodename>
 		<contcost>
-			<o2>3.879e-15</o2>
-			<o1>3.49e-1</o1>
+			<o2>-4.6594231374911033e-02</o2>
+			<o1>2.6174566508998396e+00</o1>
 			<c>0</c>
 		</contcost>
 		<contmax>20</contmax>
                 <contmin>2</contmin>
 		<contmv>
-                        <o2>2.22e-18</o2>
+                        <o2>2.22</o2>
                         <o1>1.318</o1>
                         <c>0</c>
                 </contmv>

@@ -6,8 +6,8 @@
             <basicnode>
                 <nodename>particle</nodename>
 		<contcost>
-			<o2></o2>
-			<o1></o1>
+			<o2>0</o2>
+			<o1>1</o1>
 			<c>0</c>
 		</contcost>
 		<contmax>4000</contmax>

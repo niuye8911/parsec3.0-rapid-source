@@ -6,10 +6,15 @@
             <basicnode>
                 <nodename>contnum</nodename>
 		<contcost>
-			<o2>-8.33E-12</o2>
-			<o1>1.38343E-2</o1>
-			<c>11.43</c>
+			<o2>6.3440468511544168e-02</o2>
+			<o1>1.9974938600498717e+00</o1>
+			<c>3.7476353150210343e+01</c>
 		</contcost>
+		<contmv>
+			<o2>1</c>
+			<o1>1></c>
+			<c>1</c>
+		</contmv>
             </basicnode>
         </servicelayer>
     </service>
